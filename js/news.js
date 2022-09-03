@@ -122,8 +122,8 @@ const  displayNewDetails = (data) =>{
        console.log(data)
        const DetailsContainer = document.getElementById('newsDetails')
        DetailsContainer.innerHTML =`
-       <div class="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl">
-       <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="${data.thumbnail_url}" alt="">
+       <div class=" items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl">
+       <img class="mx-32 w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="${data.thumbnail_url}" alt="">
        <div class="flex flex-col justify-between p-4 leading-normal">
            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">${data.title}</h5>
            <p class="mb-3 font-normal text-gray-700 ">${data.details}</p>
@@ -132,8 +132,10 @@ const  displayNewDetails = (data) =>{
               <div class="mx-4">
               <p>${data.author.name === null || data.author.name ===""? 'No name': data.author.name}</p>
               <p>${data.author.published_date}</p>
-              </div>  
+             
+              
            </div>
+           <i class="fa-regular fa-eye mt-2"><span class="mx-2 text-sm">${data.total_view ? data.total_view : 'No View'}</span></i>
        </div>
        </div>
 
