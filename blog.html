@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tailwind link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- tailwind components link -->
+    <!-- flowbite -->
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+    <!-- daisyUi -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <!-- css link -->
+    <link rel="stylesheet" href="style.css">
+    <!-- fontawesome kit link -->
+    <script src="https://kit.fontawesome.com/d27a544e31.js" crossorigin="anonymous"></script>
+    <title>ExtraNewsTv</title>
+    
+</head>
+<body>
+    <header>
+        <section>
+            
+                <nav class="p-3  rounded border-gray-200 mt-8">
+                    <div class="container flex flex-wrap justify-around items-center mx-auto">
+                    <a href="index.html" class="flex items-center">
+                        <span class="self-center text-xl font-semibold whitespace-nowrap">ExtraNewsTv</span>
+                    </a>
+                    <button data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex justify-center items-center ml-3 text-gray-400 rounded-lg md:hidden hover:text-gray-900 " aria-controls="navbar-solid-bg" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+                    </button>
+                    <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
+                        <ul class="flex flex-col mt-4 bg-gray-50 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent">
+                        <li>
+                            <a href="index.html" class="py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0" aria-current="page">News</a>
+                        </li>
+                        <li>
+                            <a href="blog.html" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Blog</a>
+                        </li>
+                       
+                        </ul>
+                    </div>
+                    
+                    </div>
+                    
+                </nav>
+                <hr class="mx-8"> 
+                
+        </section>
+       
+            
+       
+
+    </header>
+
+    <main>
+        <!-- question  -->
+        <section class="mt-12 grid grid-cols-1 gap-8  ">
+            <div class="card card-side bg-base-100 shadow-xl lg:mx-28 ">
+               
+                <div class="card-body">
+                  <h2 class="card-title text-center">what is difference between let and var and const in javascript?</h2>
+                  <p><span class="font-semibold">Var :</span>The scope of a var variable is functional scope.It can be updated and re-declared into the scope.It can be declared without initialization.It can be accessed without initialization as its default value is “undefined”.hoisting done , with initializing as ‘default’ value.</p>
+                  <p><span class="font-semibold">Let :</span>The scope of a let variable is block scope.It can be updated but cannot be re-declared into the scope.It can be declared without initialization.It cannot be accessed without initialization otherwise it will give ‘referenceError’.Hoisting is done , but not initialized (this is the reason for error when we access the let variable before declaration/initialization.</p>
+                  <p><span class="font-semibold">Const :</span>The scope of a const variable is block scope.It cannot be updated or re-declared into the scope.It cannot be declared without initialization.It cannot be accessed without initialization, as it cannot be declared without initialization.Hoisting is done, but not initialized (this is the reason for error when we access the const variable before declaration/initialization.</p>
+                </div>
+            </div>
+            <div class="card card-side bg-base-100 shadow-xl lg:mx-28 ">
+               
+                <div class="card-body">
+                  <h2 class="card-title text-center">what is difference between arrow function and regular function in javascript?</h2>
+                  <p><span class="font-semibold">arrow function :</span>Arguments objects are  available in arrow functions.The arrow functions are only ‘callable’ and not constructible. Thus, we will get a run-time error on trying to construct a non-constructible arrow functions using the new keyword.</p>
+                  <p><span class="font-semibold">regular function :</span>Arguments objects are  available in arrow functions.Regular functions created using function declarations or expressions are ‘constructible’ and ‘callable’. Since regular functions are constructible, they can be called using the ‘new’ keyword</p>
+                 
+                </div>
+            </div>
+            <div class="card card-side bg-base-100 shadow-xl lg:mx-28 ">
+               
+                <div class="card-body">
+                  <h2 class="card-title text-center">what is difference between  map, forEach, filter and find in javascript?</h2>
+                  <p><span class="font-semibold">.map() :</span></p>
+                  <p><span class="font-semibold">Let :</span>The scope of a let variable is block scope.It can be updated but cannot be re-declared into the scope.It can be declared without initialization.It cannot be accessed without initialization otherwise it will give ‘referenceError’.Hoisting is done , but not initialized (this is the reason for error when we access the let variable before declaration/initialization.</p>
+                  <p><span class="font-semibold">Const :</span>The scope of a const variable is block scope.It cannot be updated or re-declared into the scope.It cannot be declared without initialization.It cannot be accessed without initialization, as it cannot be declared without initialization.Hoisting is done, but not initialized (this is the reason for error when we access the const variable before declaration/initialization.</p>
+                </div>
+            </div>
+
+           <div class="card card-side bg-base-100 shadow-xl lg:mx-28 ">
+               
+                <div class="card-body">
+                  <h2 class="card-title text-center">what is difference between let and var and const in javascript?</h2>
+                  <p><span class="font-semibold">Var :</span>The scope of a var variable is functional scope.It can be updated and re-declared into the scope.It can be declared without initialization.It can be accessed without initialization as its default value is “undefined”.hoisting done , with initializing as ‘default’ value.</p>
+                  <p><span class="font-semibold">Let :</span>The scope of a let variable is block scope.It can be updated but cannot be re-declared into the scope.It can be declared without initialization.It cannot be accessed without initialization otherwise it will give ‘referenceError’.Hoisting is done , but not initialized (this is the reason for error when we access the let variable before declaration/initialization.</p>
+                  <p><span class="font-semibold">Const :</span>The scope of a const variable is block scope.It cannot be updated or re-declared into the scope.It cannot be declared without initialization.It cannot be accessed without initialization, as it cannot be declared without initialization.Hoisting is done, but not initialized (this is the reason for error when we access the const variable before declaration/initialization.</p>
+                </div>
+            </div>        
+        </section>
+        
+    </main>
+  
+    <script src="js/news.js"></script>
+    <!-- flowbite -->
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    
+</body>
+</html>

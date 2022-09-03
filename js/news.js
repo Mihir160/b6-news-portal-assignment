@@ -35,7 +35,7 @@ const categoryDisplay = (categories) =>{
 }
 
 const newsDisplay = (category_id) =>{
-    toggleSpinner(true);
+    
    const url = ` https://openapi.programming-hero.com/api/news/category/${category_id}`
     console.log(url)
    try{
@@ -45,6 +45,7 @@ const newsDisplay = (category_id) =>{
    }catch(error){
     console.log(error)
    }
+   toggleSpinner(true);
 }
 
 
@@ -52,10 +53,21 @@ const newsDisplay = (category_id) =>{
 const displayNews = (newsinfo) =>{
     console.log(newsinfo)
     const itemContainer = document.getElementById('items')
-    itemContainer.innerHTML =`<p>${newsinfo.length} items found for category Entertainment</p>`
+    itemContainer.innerHTML =`<p>${newsinfo.length === 0 && toggleSpinner(false) ? '' :newsinfo.length } items found for category Entertainment</p>`
     const newsContainer = document.getElementById('newsContainer')
     // total_view sort
     newsinfo.sort((a, b) => b.total_view - a.total_view);
+    //no news
+    const noNews = document.getElementById('no-found-message')
+
+        if(newsinfo.length === 0){
+            console.log(newsinfo.length)
+            noNews.classList.remove('hidden')
+        }
+
+        else{
+            noNews.classList.add('hidden')
+        }
     newsContainer.innerHTML = ``
     for(let news of newsinfo){
     const newsDiv = document.createElement('div')
@@ -70,13 +82,13 @@ const displayNews = (newsinfo) =>{
             <div class="flex items-center">
                <img class="object-cover h-8 rounded-t-lg  rounded-lg" src="${news.author.img}" alt="">
                <div class="mx-4">
-               <p>${news.author.name ? news.author.name: 'No name'}</p>
+               <p>${news.author.name === null || news.author.name ===""? 'No name': news.author.name}</p>
                <p>${news.author.published_date}</p>
                </div>
                
                
                <i class="fa-regular fa-eye mt-2"><span class="mx-2 text-sm">${news.total_view ? news.total_view : 'No View'}</span></i>
-               <label onclick="newDetailsModal('${news._id}}')" for="my-modal-3" class="modal-button hover:text-blue-800 font-medium mt-2 mx-8"><i class="fa-solid fa-arrow-right"></i></label>
+               <label onclick="newDetailsModal('${news._id}')" for="my-modal-3" class="modal-button hover:text-blue-800 font-medium mt-2 mx-8"><i class="fa-solid fa-arrow-right"></i></label>
            
             </div>
         </div>
@@ -89,6 +101,9 @@ const displayNews = (newsinfo) =>{
  
    
 }
+
+
+
 // modal
 const newDetailsModal = (ids) =>{
     url = `https://openapi.programming-hero.com/api/news/${ids}`
