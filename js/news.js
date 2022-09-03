@@ -28,11 +28,7 @@ const categoryDisplay = (categories) =>{
         `
         categoryConatainer.appendChild(categoryDiv)
     }
-
-  
-   
-
-}
+ }
 
 const newsDisplay = (category_id) =>{
     
@@ -69,11 +65,10 @@ const displayNews = (newsinfo) =>{
             noNews.classList.add('hidden')
         }
     newsContainer.innerHTML = ``
+    // display news
     newsinfo.forEach(news =>{
     const newsDiv = document.createElement('div')
     newsDiv.innerHTML = `
-       
-
         <div class="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl">
         <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="${news.thumbnail_url}" alt="">
         <div class="flex flex-col justify-between p-4 leading-normal">
@@ -85,11 +80,8 @@ const displayNews = (newsinfo) =>{
                <p>${news.author.name === null || news.author.name ===""? 'No name': news.author.name}</p>
                <p>${news.author.published_date}</p>
                </div>
-               
-               
                <i class="fa-regular fa-eye mt-2"><span class="mx-2 text-sm">${news.total_view ? news.total_view : 'No View'}</span></i>
                <label onclick="newDetailsModal('${news._id}')" for="my-modal-3" class="modal-button hover:text-blue-800 font-medium mt-2 mx-8"><i class="fa-solid fa-arrow-right"></i></label>
-           
             </div>
         </div>
         </div>
@@ -117,13 +109,13 @@ const newDetailsModal = (ids) =>{
     }
    
 }
-
+// modal details
 const  displayNewDetails = (data) =>{
        console.log(data)
        const DetailsContainer = document.getElementById('newsDetails')
        DetailsContainer.innerHTML =`
        <div class=" items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl">
-       <img class="lg:mx-28 w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="${data.thumbnail_url}" alt="">
+       <img class="lg:mx-28 md:mx-28  w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="${data.thumbnail_url}" alt="">
        <div class="flex flex-col justify-between p-4 leading-normal">
            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">${data.title}</h5>
            <p class="mb-3 font-normal text-gray-700 ">${data.details}</p>
@@ -131,9 +123,7 @@ const  displayNewDetails = (data) =>{
               <img class="object-cover h-8 rounded-t-lg  rounded-lg" src="${data.author.img}" alt="">
               <div class="mx-4">
               <p>${data.author.name === null || data.author.name ===""? 'No name': data.author.name}</p>
-              <p>${data.author.published_date}</p>
-             
-              
+              <p>${data.author.published_date}</p> 
            </div>
            <i class="fa-regular fa-eye mt-2"><span class="mx-2 text-sm">${data.total_view ? data.total_view : 'No View'}</span></i>
        </div>
