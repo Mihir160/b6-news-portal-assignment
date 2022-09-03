@@ -50,16 +50,19 @@ const newsDisplay = (category_id) =>{
 
 
 const displayNews = (newsinfo) =>{
-    
+    console.log(newsinfo)
     const itemContainer = document.getElementById('items')
     itemContainer.innerHTML =`<p>${newsinfo.length} items found for category Entertainment</p>`
     const newsContainer = document.getElementById('newsContainer')
+    // total_view sort
+    newsinfo.sort((a, b) => b.total_view - a.total_view);
     newsContainer.innerHTML = ``
     for(let news of newsinfo){
     const newsDiv = document.createElement('div')
     newsDiv.innerHTML = `
        
-        <a href="#" class="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100">
+
+        <div class="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl">
         <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="${news.thumbnail_url}" alt="">
         <div class="flex flex-col justify-between p-4 leading-normal">
             <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">${news.title}</h5>
@@ -68,17 +71,17 @@ const displayNews = (newsinfo) =>{
                <img class="object-cover h-8 rounded-t-lg  rounded-lg" src="${news.author.img}" alt="">
                <div class="mx-4">
                <p>${news.author.name ? news.author.name: 'No name'}</p>
-               <p>${news.author.published_date.slice(0,10)}</p>
+               <p>${news.author.published_date}</p>
                </div>
                
                
                <i class="fa-regular fa-eye mt-2"><span class="mx-2 text-sm">${news.total_view ? news.total_view : 'No View'}</span></i>
-               <svg aria-hidden="true" class="w-5 h-5 mt-3 mx-12" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-              
-            
+               <label onclick="newDetailsModal('${news._id}}')" for="my-modal-3" class="modal-button hover:text-blue-800 font-medium mt-2 mx-8"><i class="fa-solid fa-arrow-right"></i></label>
+           
             </div>
         </div>
-       </a>
+        </div>
+      
     `
     newsContainer.appendChild(newsDiv)
     toggleSpinner(false);
@@ -86,7 +89,19 @@ const displayNews = (newsinfo) =>{
  
    
 }
-
+// modal
+const newDetailsModal = (ids) =>{
+    url = `https://openapi.programming-hero.com/api/news/${ids}`
+    console.log(url)
+    try{ fetch(url)
+        .then(res =>res.json())
+        .then(data => console.log(data.data[0]))
+    }
+    catch(error){
+        console.log(error)
+    }
+   
+}
 
 
 const toggleSpinner = isLoading => {
