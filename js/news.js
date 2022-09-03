@@ -53,7 +53,7 @@ const newsDisplay = (category_id) =>{
 const displayNews = (newsinfo) =>{
     // console.log(newsinfo)
     const itemContainer = document.getElementById('items')
-    itemContainer.innerHTML =`<p>${newsinfo.length === 0 && toggleSpinner(false) ? '' :newsinfo.length } items found for category Entertainment</p>`
+    itemContainer.innerHTML =`<p>${newsinfo.length === 0 && toggleSpinner(false) ? '' :newsinfo.length } items Found</p>`
     const newsContainer = document.getElementById('newsContainer')
     // total_view sort
     newsinfo.sort((a, b) => b.total_view - a.total_view);
@@ -123,7 +123,7 @@ const  displayNewDetails = (data) =>{
        const DetailsContainer = document.getElementById('newsDetails')
        DetailsContainer.innerHTML =`
        <div class=" items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl">
-       <img class="mx-32 w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="${data.thumbnail_url}" alt="">
+       <img class="lg:mx-28 w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="${data.thumbnail_url}" alt="">
        <div class="flex flex-col justify-between p-4 leading-normal">
            <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">${data.title}</h5>
            <p class="mb-3 font-normal text-gray-700 ">${data.details}</p>
@@ -153,5 +153,5 @@ const toggleSpinner = isLoading => {
         loaderSection.classList.add('hidden');
     }
 }
-newsDisplay('01')
+// newsDisplay('01')
 newsCategoryLoad()
