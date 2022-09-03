@@ -51,7 +51,7 @@ const newsDisplay = (category_id) =>{
 
 
 const displayNews = (newsinfo) =>{
-    console.log(newsinfo)
+    // console.log(newsinfo)
     const itemContainer = document.getElementById('items')
     itemContainer.innerHTML =`<p>${newsinfo.length === 0 && toggleSpinner(false) ? '' :newsinfo.length } items found for category Entertainment</p>`
     const newsContainer = document.getElementById('newsContainer')
@@ -69,7 +69,7 @@ const displayNews = (newsinfo) =>{
             noNews.classList.add('hidden')
         }
     newsContainer.innerHTML = ``
-    for(let news of newsinfo){
+    newsinfo.forEach(news =>{
     const newsDiv = document.createElement('div')
     newsDiv.innerHTML = `
        
@@ -97,7 +97,7 @@ const displayNews = (newsinfo) =>{
     `
     newsContainer.appendChild(newsDiv)
     toggleSpinner(false);
-   }
+   })
  
    
 }
@@ -107,10 +107,10 @@ const displayNews = (newsinfo) =>{
 // modal
 const newDetailsModal = (ids) =>{
     url = `https://openapi.programming-hero.com/api/news/${ids}`
-    console.log(url)
+    // console.log(url)
     try{ fetch(url)
         .then(res =>res.json())
-        .then(data => displaNewDetails(data.data[0]))
+        .then(data => displayNewDetails(data.data[0]))
     }
     catch(error){
         console.log(error)
@@ -118,8 +118,26 @@ const newDetailsModal = (ids) =>{
    
 }
 
-const  displaNewDetails = (newsDetails) =>{
-       console.log(newsDetails)
+const  displayNewDetails = (data) =>{
+       console.log(data)
+       const DetailsContainer = document.getElementById('newsDetails')
+       DetailsContainer.innerHTML =`
+       <div class="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl">
+       <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="${data.thumbnail_url}" alt="">
+       <div class="flex flex-col justify-between p-4 leading-normal">
+           <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">${data.title}</h5>
+           <p class="mb-3 font-normal text-gray-700 ">${data.details}</p>
+           <div class="flex items-center">
+              <img class="object-cover h-8 rounded-t-lg  rounded-lg" src="${data.author.img}" alt="">
+              <div class="mx-4">
+              <p>${data.author.name === null || data.author.name ===""? 'No name': data.author.name}</p>
+              <p>${data.author.published_date}</p>
+              </div>  
+           </div>
+       </div>
+       </div>
+
+       `
 }
 
 
@@ -133,4 +151,5 @@ const toggleSpinner = isLoading => {
         loaderSection.classList.add('hidden');
     }
 }
+newsDisplay('01')
 newsCategoryLoad()
