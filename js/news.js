@@ -110,13 +110,18 @@ const newDetailsModal = (ids) =>{
     console.log(url)
     try{ fetch(url)
         .then(res =>res.json())
-        .then(data => console.log(data.data[0]))
+        .then(data => displaNewDetails(data.data[0]))
     }
     catch(error){
         console.log(error)
     }
    
 }
+
+const  displaNewDetails = (newsDetails) =>{
+       console.log(newsDetails)
+}
+
 
 
 const toggleSpinner = isLoading => {
