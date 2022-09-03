@@ -21,10 +21,10 @@
 <body>
     <header>
         <section>
-                <nav class="p-3  rounded border-gray-200 mt-8">
+                <nav class="p-3 mt-8 rounded border-gray-200">
                     <div class="container flex flex-wrap justify-around items-center mx-auto">
                     <a href="index.html" class="flex items-center">
-                        <span class="self-center text-xl font-semibold whitespace-nowrap">ExtraNewsPaper</span>
+                        <p class="self-center text-xl font-semibold whitespace-nowrap">ExtraNews<span class="bg-slate-300 p-1 rounded-lg">Paper</span> </p>
                     </a>
                     <button data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex justify-center items-center ml-3 text-gray-400 rounded-lg md:hidden hover:text-gray-900 " aria-controls="navbar-solid-bg" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
@@ -33,7 +33,7 @@
                     <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
                         <ul class="flex flex-col mt-4 bg-gray-50 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent">
                         <li>
-                            <a href="#" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0" aria-current="page">News</a>
+                            <a href="#" class="block py-2 pr-4 pl-3 text-white  rounded md:bg-transparent md:text-blue-700 md:p-0" aria-current="page">News</a>
                         </li>
                         <li>
                             <a href="blog.html" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Blog</a>
@@ -46,7 +46,7 @@
         </section>
         <!-- news category -->
         <section>
-            <div id="newsCategory" class="grid lg:grid-cols-8  grid-cols-2 mx-8  lg:mx-32 lg:mr-32 ">
+            <div id="newsCategory" class="grid lg:grid-cols-8  grid-cols-2 mx-8 md:text-center  lg:mx-32 lg:mr-32 ">
               
             </div>
         </section>
@@ -64,7 +64,7 @@
         </div>
           <!-- find items -->
           <section>
-            <div id="items-found">
+            <div id="items-found" >
 
             </div>
           </section>
@@ -98,6 +98,11 @@
             </div>
         </section>
     </main>
+    <footer>
+        <div class="mt-12 mb-12 text-center">
+            <h1>Copyright @ 2022 News Portal</h1>
+        </div>
+    </footer>
     <script src="js/news.js"></script>
     <!-- flowbite -->
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>

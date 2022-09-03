@@ -22,7 +22,7 @@ const categoryDisplay = (categories) =>{
         categoryDiv.innerHTML = `
         <ul class="mt-8">
         <li>
-          <a href="#" onclick="newsDisplay('${category.category_id}')" class="hover:text-blue-700 p-2">${category.category_name}</a>
+          <a href="#" onclick="newsDisplay('${category.category_id}')" class="hover:text-blue-700 ">${category.category_name}</a>
         </li>
         </ul>
         `
@@ -49,7 +49,7 @@ const newsDisplay = (category_id) =>{
 const displayNews = (newsinfo) =>{
     // console.log(newsinfo)
     const itemContainer = document.getElementById('items')
-    itemContainer.innerHTML =`<p>${newsinfo.length === 0 && toggleSpinner(false) ? '' :newsinfo.length } items Found</p>`
+    itemContainer.innerHTML =`<p class="bg-slate-300 p-4 lg:mx-32 rounded-lg"">${newsinfo.length === 0 && toggleSpinner(false) ? '' :newsinfo.length} items Found</p>`
     const newsContainer = document.getElementById('newsContainer')
     // total_view sort
     newsinfo.sort((a, b) => b.total_view - a.total_view);
@@ -70,10 +70,10 @@ const displayNews = (newsinfo) =>{
     const newsDiv = document.createElement('div')
     newsDiv.innerHTML = `
         <div class="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl">
-        <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="${news.thumbnail_url}" alt="">
+        <img class="object-cover w-full h-96  rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="${news.thumbnail_url}" alt="">
         <div class="flex flex-col justify-between p-4 leading-normal">
             <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">${news.title}</h5>
-            <p class="mb-3 font-normal text-gray-700 ">${news.details.slice(0, 300)}....</p>
+            <p class="mb-3 font-normal text-gray-700 ">${news.details.slice(0, 100)}....</p>
             <div class="flex items-center">
                <img class="object-cover h-8 rounded-t-lg  rounded-lg" src="${news.author.img}" alt="">
                <div class="mx-4">
@@ -143,5 +143,5 @@ const toggleSpinner = isLoading => {
         loaderSection.classList.add('hidden');
     }
 }
-// newsDisplay('01')
+ newsDisplay('08')
 newsCategoryLoad()
