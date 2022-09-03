@@ -18,10 +18,11 @@ const categoryDisplay = (categories) =>{
     for(let category of categories){
         // console.log(category)
         const categoryDiv = document.createElement('div')
+        
         categoryDiv.innerHTML = `
         <ul class="mt-8">
         <li>
-          <a href="#" onclick="newsDisplay('${category.category_id}')">${category.category_name}</a>
+          <a href="#" onclick="newsDisplay('${category.category_id}')" class="hover:text-blue-700 p-2">${category.category_name}</a>
         </li>
         </ul>
         `
@@ -34,8 +35,9 @@ const categoryDisplay = (categories) =>{
 }
 
 const newsDisplay = (category_id) =>{
+    toggleSpinner(true);
    const url = ` https://openapi.programming-hero.com/api/news/category/${category_id}`
-     console.log(url)
+    console.log(url)
    try{
     fetch(url)
     .then(res => res.json())
@@ -48,6 +50,7 @@ const newsDisplay = (category_id) =>{
 
 
 const displayNews = (newsinfo) =>{
+    
     const itemContainer = document.getElementById('items')
     itemContainer.innerHTML =`<p>${newsinfo.length} items found for category Entertainment</p>`
     const newsContainer = document.getElementById('newsContainer')
@@ -61,15 +64,15 @@ const displayNews = (newsinfo) =>{
         <div class="flex flex-col justify-between p-4 leading-normal">
             <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">${news.title}</h5>
             <p class="mb-3 font-normal text-gray-700 ">${news.details.slice(0, 300)}....</p>
-            <div class="flex">
-               <img class="object-cover h-12 rounded-t-lg  rounded-lg" src="${news.author.img}" alt="">
+            <div class="flex items-center">
+               <img class="object-cover h-8 rounded-t-lg  rounded-lg" src="${news.author.img}" alt="">
                <div class="mx-4">
                <p>${news.author.name ? news.author.name: 'No name'}</p>
                <p>${news.author.published_date.slice(0,10)}</p>
                </div>
                
                
-               <i class="fa-regular fa-eye mt-4"><span class="mx-2">${news.rating.number}</span></i>
+               <i class="fa-regular fa-eye mt-2"><span class="mx-2 text-sm">${news.total_view ? news.total_view : 'No View'}</span></i>
                <svg aria-hidden="true" class="w-5 h-5 mt-3 mx-12" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
               
             
@@ -78,8 +81,21 @@ const displayNews = (newsinfo) =>{
        </a>
     `
     newsContainer.appendChild(newsDiv)
+    toggleSpinner(false);
    }
  
- 
+   
+}
+
+
+
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if(isLoading){
+        loaderSection.classList.remove('hidden')
+    }
+    else{
+        loaderSection.classList.add('hidden');
+    }
 }
 newsCategoryLoad()
