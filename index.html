@@ -21,7 +21,6 @@
 <body>
     <header>
         <section>
-            
                 <nav class="p-3  rounded border-gray-200 mt-8">
                     <div class="container flex flex-wrap justify-around items-center mx-auto">
                     <a href="index.html" class="flex items-center">
@@ -39,24 +38,18 @@
                         <li>
                             <a href="blog.html" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Blog</a>
                         </li>
-                       
                         </ul>
                     </div>
-                    
                     </div>
-                    
                 </nav>
                 <hr class="mx-8"> 
-                
         </section>
+        <!-- news category -->
         <section>
             <div id="newsCategory" class="grid lg:grid-cols-8  grid-cols-2 mx-8  lg:mx-32 lg:mr-32 ">
               
             </div>
         </section>
-            
-       
-
     </header>
     <main>
            <!-- loader -->
@@ -69,12 +62,13 @@
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
-
+          <!-- find items -->
           <section>
             <div id="items-found">
 
             </div>
           </section>
+          <!-- news paper container -->
         <section>
              <div id="items" class="mt-8 text-center font-bold">
 
@@ -84,6 +78,7 @@
 
             </div>
         </section>
+        <!-- no news found -->
         <section>
             <div class="hidden" id="no-found-message">
                 <h3 class="text-center mt-8 font-bold lg:text-2xl text-sky-600 ">No News Found</h3>
@@ -91,9 +86,6 @@
         </section>
         <!-- modal -->
         <section>
-             <!-- The button to open modal -->
-            
-
             <!-- Put this part before  -->
             <input type="checkbox" id="my-modal-3" class="modal-toggle" />
             <div class="modal">
@@ -102,15 +94,12 @@
                 <div id="newsDetails">
 
                 </div>
-            
             </div>
             </div>
         </section>
-
     </main>
     <script src="js/news.js"></script>
     <!-- flowbite -->
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
-    
 </body>
 </html>
